@@ -1,0 +1,8 @@
+<div class="listado">
+  <div class="fila" *ngFor="let profe of profesores" (click)="elegirProfesor(profe)">
+    <span>{{profe.correo}}</span><img src="{{profe.foto}}">
+  </div>
+</div>
+<input type="text" disabled [(ngModel)]="elegido" placeholder="Profe elegido" style="width: 100%;">
+
+

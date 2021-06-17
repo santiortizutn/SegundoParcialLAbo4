@@ -1,0 +1,10 @@
+
+<div class="centrado">
+  <app-bienvenido *ngIf="opcion == ''" (ingresoEvento)="opcion = $event"></app-bienvenido>
+  <app-login *ngIf="opcion == 'ingreso'" (loadEvent)="loaded = $event"></app-login>
+  <app-registro *ngIf="opcion == 'registro'" (loadEvent)="loaded = $event" (volverEvent)="opcion = $event"></app-registro>
+</div>
+
+<button mat-icon-button class="back-btn" *ngIf="loaded" (click)="back()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

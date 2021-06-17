@@ -1,0 +1,36 @@
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="large"
+color="#fff"
+type="ball-scale-multiple">
+<p style="font-size: 20px; color: white"></p>
+</ngx-spinner>
+
+<div class="listado" *ngIf="!loading">
+  <div class="fila" *ngFor="let materia of materias">
+    <div class="card" style="width: 300; height: 300; margin: 10px;">
+      <img class="card-img-top" src="{{materia.foto}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{materia.nombre |uppercase}}</h5>
+        <p class="card-text">{{materia.cuatrimestre}} cuatrimestre - {{materia.anio}} año</p>
+        <a class="btn btn-dark" style="margin: 2px;" (click)="elegirMateria(materia)">Inscribirse</a>
+        <a class="btn btn-danger" style="margin: 2px;" *ngIf="paginaActual=='listados'" (click)="mostrarAlumnos(materia)">Ver alumnos</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="listado" style="flex-direction: column;" *ngIf="!loading && mostrar">
+<span>Hay {{cupoDisponible}} cupos disponibles.</span>
+  <div class="fila" *ngFor="let alumno of alumnosParaMostrar">
+    <div class="card" style="width: 300; height: 250; margin: 10px;">
+      <img class="card-img-top" src="{{alumno.foto}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{alumno.correo |uppercase}}</h5>
+      </div>
+    </div>
+  </div>
+  <p *ngIf="alumnosParaMostrar.length == 0">No hay alumnos inscriptos.</p>
+</div>
+
+

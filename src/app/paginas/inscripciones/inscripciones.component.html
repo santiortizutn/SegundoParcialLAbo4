@@ -1,0 +1,15 @@
+<app-cabecera (navigateEvent)="salir($event)"></app-cabecera>
+
+<div class="centrado">
+  <div class="formulario animate__animated animate__fadeIn">
+    <div class="listados">
+      <app-listado-materias (materiaElegidaEvent)="asignarDatos($event, 'materia')"></app-listado-materias>
+      <app-listado-alumnos (alumnoElegidoEvent)="asignarDatos($event, 'alumno')"></app-listado-alumnos>
+    </div>
+    <div class="futer">
+      <input type="text" disabled placeholder="Alumno elegido" [(ngModel)]="correo!">
+      <input type="text" disabled placeholder="Materia elegida" [(ngModel)]="nombre!">
+      <button class="btn btn-dark" style="width: 200px;" (click)="enviarDatos()">Aceptar</button>
+    </div>
+  </div>
+</div>
