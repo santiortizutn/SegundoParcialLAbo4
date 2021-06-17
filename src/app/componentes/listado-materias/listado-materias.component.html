@@ -20,7 +20,7 @@ type="ball-scale-multiple">
   </div>
 </div>
 
-<div class="listado" style="flex-direction: column;" *ngIf="!loading && mostrar">
+<div class="listado" *ngIf="!loading && mostrar">
 <span>Hay {{cupoDisponible}} cupos disponibles.</span>
   <div class="fila" *ngFor="let alumno of alumnosParaMostrar">
     <div class="card" style="width: 300; height: 250; margin: 10px;">

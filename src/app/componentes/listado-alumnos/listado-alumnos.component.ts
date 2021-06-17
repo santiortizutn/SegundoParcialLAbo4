@@ -13,7 +13,6 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 export class ListadoAlumnosComponent implements OnInit {
 
   @Output() alumnoElegidoEvent = new EventEmitter();
-  @Input('pagina') paginaActual : string = 'inscripcion';
 
   elegida : string;
   loading : boolean = true;

@@ -12,3 +12,9 @@ div{
   align-items: center;
   justify-content: center;
 }
+
+.listados{
+  background-color: white;
+  width: 80%;
+  height: auto;
+}

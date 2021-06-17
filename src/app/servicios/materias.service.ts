@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
+import { Inscripcion } from '../clases/inscripcion';
 import { Materia } from '../clases/materia';
 import { Usuario } from '../clases/usuario';
 
@@ -13,6 +14,9 @@ export class MateriasService {
   private materias: AngularFireList<any>;
   private mats: Array<Materia> = [];
 
+  private inscripciones: AngularFireList<any>;
+  private ins: Array<Inscripcion> = [];
+
   constructor(private http:HttpClient, private firebase:AngularFireDatabase) {
     this.materias = this.firebase.list('materias');
     this.materias.snapshotChanges().forEach(elementos =>{
@@ -22,10 +26,34 @@ export class MateriasService {
         this.mats.push(materia);
       })
     });
+    this.inscripciones = this.firebase.list('inscripciones');
+    this.inscripciones.snapshotChanges().forEach(elementos =>{
+      this.ins = [];
+      elementos.forEach(snapshot => {
+        const inscripcion = snapshot.payload.toJSON() as Inscripcion;
+        inscripcion.uid = snapshot.payload.key;
+        this.ins.push(inscripcion);
+      })
+    });
   }
 
   traerTodos(){
     return this.materias;
+  }
+
+  traerTodosIns(){
+    return this.inscripciones;
+  }
+
+  traerPorNombreIns(inscripcion : string){
+    let ins: Inscripcion = null;
+
+    for (let i = 0; i < this.ins.length; i++) {
+      if (this.ins[i].nombre == inscripcion) {
+        ins = this.ins[i];
+      }
+    }
+    return ins;
   }
 
   traerPorNombre(materia : string){
@@ -65,7 +93,11 @@ export class MateriasService {
     return this.http.post(`${environment.hostFirebase}/materias.json`, materia);
   }
 
-  inscribirAlumno(uid : string, alumnos : any){
-    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{alumnos: alumnos});
+  inscribirAlumno(inscripcion : Inscripcion){
+    return this.http.post(`${environment.hostFirebase}/inscripciones.json`, inscripcion);
+  }
+
+  sobrescribir(inscripcion : Inscripcion){
+    return this.http.patch(`${environment.hostFirebase}/inscripciones/${inscripcion.uid}.json`, inscripcion);
   }
 }
