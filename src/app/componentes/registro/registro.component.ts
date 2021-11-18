@@ -65,11 +65,11 @@ export class RegistroComponent implements OnInit {
     if (this.opcion == 'administrador') {
       this.opcion = TipoUsuario.administrador;
     }
-    if (this.opcion == 'alumno') {
-      this.opcion = TipoUsuario.alumno;
+    if (this.opcion == 'vendedor') {
+      this.opcion = TipoUsuario.vendedor;
     }
-    if (this.opcion == 'profesor') {
-      this.opcion = TipoUsuario.profesor;
+    if (this.opcion == 'comprador') {
+      this.opcion = TipoUsuario.comprador;
     }
   }
 

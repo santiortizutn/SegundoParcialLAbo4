@@ -1,0 +1,20 @@
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="large"
+color="#fff"
+type="ball-scale-multiple">
+<p style="font-size: 20px; color: white"></p>
+</ngx-spinner>
+
+<div class="listado" *ngIf="!loading">
+  <div class="fila" *ngFor="let user of usuarios">
+    <div class="card" style="width: 300; height: 300; margin: 10px;">
+      <div class="card-body">
+        <h5 class="card-title">{{user.correo |uppercase}}</h5>
+        <p class="card-text">{{user.tipo}}</p>
+        <a class="btn btn-dark" style="margin: 2px;" *ngIf="user.estado == 'inactivo' && user.tipo == 'vendedor'" (click)="cambiarEstado(user.uid, 'acitvar')">Habilitar</a>
+        <a class="btn btn-danger" style="margin: 2px;" *ngIf="user.estado == 'activo' && user.tipo == 'vendedor'" (click)="cambiarEstado(user.uid, 'desactivar')">Deshabilitar</a>
+      </div>
+    </div>
+  </div>
+</div>

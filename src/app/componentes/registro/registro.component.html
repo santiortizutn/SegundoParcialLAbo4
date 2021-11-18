@@ -7,8 +7,8 @@
 </ngx-spinner>
 
 <div class="buttons animate__animated animate__fadeIn" *ngIf="!loading && opcion == 'none'">
-  <button style="background-image: url(../../../assets/alumno.jpg); background-size: cover;" (click)="opcion = 'alumno'">ALUMNO</button>
-  <button style="background-image: url(../../../assets/profesor.jpg); background-size: cover;" (click)="opcion = 'profesor'">PROFESOR</button>
+  <button style="background-image: url(../../../assets/vendedor.jpg); background-size: cover;" (click)="opcion = 'vendedor'">VENDEDOR</button>
+  <button style="background-image: url(../../../assets/comprador.jpg); background-size: cover;" (click)="opcion = 'comprador'">COMPRADOR</button>
   <button style="background-image: url(../../../assets/admin.jpg); background-size: cover;" *ngIf="esAdmin.tipo == 'administrador'" (click)="opcion = 'administrador'">ADMINISTRADOR</button>
 </div>
 <div class="formulario animate__animated animate__fadeIn" *ngIf="!loading && opcion != 'none'">

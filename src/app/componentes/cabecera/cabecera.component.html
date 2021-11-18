@@ -6,9 +6,8 @@
       </button>
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="usuarioActual.tipo! == 'administrador'">
         <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'altaUsuarios'}" (click)="navigate('altaUsuarios')">Alta usuarios</a></li>
-        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'altaMaterias'}" (click)="navigate('altaMaterias')">Alta materias</a></li>
-        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'inscripciones'}" (click)="navigate('inscripciones')">Inscripciones</a></li>
-        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'listados'}" (click)="navigate('listados')">Listados</a></li>
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'altaCriptos'}" (click)="navigate('altaCriptos')">Alta criptos</a></li>
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'listados'}" (click)="navigate('listados')">Listado de usuarios</a></li>
       </ul>
       <div class="text-end">
         <button type="button" class="btn btn-outline-light me-2" (click)="navigate('salir')" logEmail (logEmailEvent)="asignar($event)">{{email}}

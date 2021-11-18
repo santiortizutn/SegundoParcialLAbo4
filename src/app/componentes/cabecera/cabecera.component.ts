@@ -35,8 +35,8 @@ export class CabeceraComponent implements OnInit {
       case 'altaUsuarios':
         this.router.navigate(['/alta-usuarios']);
         break;
-      case 'altaMaterias':
-        this.router.navigate(['/alta-materias']);
+      case 'altaCriptos':
+        this.router.navigate(['/alta-criptos']);
         break;
       case 'inscripciones':
         this.router.navigate(['/inscripciones']);

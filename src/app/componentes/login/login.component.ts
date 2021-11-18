@@ -56,13 +56,13 @@ export class LoginComponent implements OnInit {
         this.imagen = data;
       });
 
-      // profe
-      this.storage.traerFoto("pepe@pepe.com - profesor.jpg").subscribe(data =>{
+      // vendedor
+      this.storage.traerFoto("pepe@pepe.com - vendedor.jpg").subscribe(data =>{
         this.imagen2 = data;
       });
 
-      // alumno
-      this.storage.traerFoto("leo@diaz.com - alumno.jpg").subscribe(data =>{
+      // comprador
+      this.storage.traerFoto("leo@diaz.com - comprador.jpg").subscribe(data =>{
         this.imagen3 = data;
       });
     }
@@ -84,11 +84,11 @@ export class LoginComponent implements OnInit {
       this.correo = "santyno09@gmail.com";
       this.clave = "123456";
     }
-    if (perfil == "prof") {
+    if (perfil == "vend") {
       this.correo = "pepe@pepe.com"
       this.clave = "123456";
     }
-    if (perfil == "alum") {
+    if (perfil == "comp") {
       this.correo = "leo@diaz.com"
       this.clave = "123456";
     }
