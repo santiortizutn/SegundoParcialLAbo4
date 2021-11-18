@@ -44,8 +44,12 @@ export class UsuariosService {
     return this.http.post(`${environment.hostFirebase}/usuarios.json`, usuario);
   }
 
-  habilitarMateria(uid:string){
-    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{});
+  habilitarUsuario(uid:string){
+    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{estado: 'activo'});
+  }
+
+  deshabilitarUsuario(uid:string){
+    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{estado: 'inactivo'});
   }
 
 

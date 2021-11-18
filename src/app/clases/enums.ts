@@ -1,8 +1,11 @@
 export enum TipoUsuario {
-  alumno = "alumno",
-  profesor = "profesor",
+  vendedor = "vendedor",
+  comprador = "comprador",
   administrador = "administrador",
-  nada = "nada"
+  nada = "nada",
+  profesor = "profesor",
+  alumno = "alumno"
+
 }
 
 export enum EstadoUsuario {
