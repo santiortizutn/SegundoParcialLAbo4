@@ -44,7 +44,7 @@ export class FormCriptosComponent implements OnInit {
      this.formGroup.controls['año'].value,
     );
 
-    if(!this.cripService.validaRegistro(nuevaCripto.nombre, nuevaCripto.año)){
+    if(!this.cripService.validaRegistro(nuevaCripto.nombre, nuevaCripto.anio)){
       this.cripService.registrarEnBD(nuevaCripto).subscribe(()=>{
         this.spinner.hide().then(()=>{
           Swal.fire({

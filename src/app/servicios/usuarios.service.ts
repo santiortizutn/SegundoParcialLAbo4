@@ -19,6 +19,7 @@ export class UsuariosService {
       this.users = [];
       elementos.forEach(snapshot => {
         const usuario = snapshot.payload.toJSON() as Usuario;
+        usuario.uid = snapshot.payload.key;
         this.users.push(usuario);
       })
     });
@@ -45,11 +46,11 @@ export class UsuariosService {
   }
 
   habilitarUsuario(uid:string){
-    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{estado: 'activo'});
+    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{estado: EstadoUsuario.activo});
   }
 
   deshabilitarUsuario(uid:string){
-    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{estado: 'inactivo'});
+    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{estado: EstadoUsuario.inactivo});
   }
 
 

@@ -85,11 +85,11 @@ export class LoginComponent implements OnInit {
       this.clave = "123456";
     }
     if (perfil == "vend") {
-      this.correo = "pepe@pepe.com"
+      this.correo = "juan@juuan.com"
       this.clave = "123456";
     }
     if (perfil == "comp") {
-      this.correo = "leo@diaz.com"
+      this.correo = "barbaranavarro759@gmail.com"
       this.clave = "123456";
     }
   }

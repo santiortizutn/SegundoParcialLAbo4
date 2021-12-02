@@ -1,10 +1,12 @@
 .listado{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  overflow-x: scroll;
+  justify-content: center;
+  background-color: rgb(56, 56, 56);
   border-radius: 3px;
-  width: 100%;
+  width: 700px;
+  max-height: 600px;
 }
 
 .fila{
@@ -12,11 +14,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 img{
   height: 200px;
   width: 300px;
+}
+
+.search-bar{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  padding: 10px;
+  background-color: rgb(56, 56, 56);
 }

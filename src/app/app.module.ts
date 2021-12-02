@@ -18,7 +18,8 @@ import { ComponentesModule } from './componentes/componentes.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+
 
   ],
   imports: [

@@ -18,6 +18,7 @@ export class CriptoService {
       this.criptos = [];
       elementos.forEach(snapshot => {
         const cripto = snapshot.payload.toJSON() as Cripto;
+        cripto.uid = snapshot.payload.key;
         this.criptos.push(cripto);
       })
     });
@@ -27,14 +28,23 @@ export class CriptoService {
     return this.criptomonedas;
   }
 
+  traerTodasArray(){
+    return this.criptos;
+  }
+
   registrarEnBD(cripto : Cripto){
     return this.http.post(`${environment.hostFirebase}/criptomonedas.json`, cripto);
   }
 
+  registrarEnBDVendedor(criptos : Cripto[], uid : string){
+    return this.http.patch(`${environment.hostFirebase}/usuarios/${uid}.json`,{misCriptos: criptos});
+  }
+
+
   validaRegistro(nombre : string, año : string) : Boolean{
     let log : Boolean = false;
     this.criptos.forEach(u => {
-      if (nombre == u.nombre && año == u.año){
+      if (nombre == u.nombre && año == u.anio){
         log = true;
       }
     });

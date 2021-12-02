@@ -17,6 +17,9 @@ import { ListadoAlumnosComponent } from './listado-alumnos/listado-alumnos.compo
 import { ListadoMateriasComponent } from './listado-materias/listado-materias.component';
 import { FormCriptosComponent } from './form-criptos/form-criptos.component';
 import { ListadoUsuariosComponent } from './listado-usuarios/listado-usuarios.component';
+import { FiltroPipe } from '../pipes/filtro.pipe';
+import { ListadoCriptosComponent } from './listado-criptos/listado-criptos.component';
+import { ComisionPipe } from '../pipes/comision.pipe';
 
 
 
@@ -32,7 +35,10 @@ import { ListadoUsuariosComponent } from './listado-usuarios/listado-usuarios.co
     ListadoAlumnosComponent,
     ListadoMateriasComponent,
     FormCriptosComponent,
-    ListadoUsuariosComponent
+    ListadoUsuariosComponent,
+    FiltroPipe,
+    ComisionPipe,
+    ListadoCriptosComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +61,8 @@ import { ListadoUsuariosComponent } from './listado-usuarios/listado-usuarios.co
     ListadoAlumnosComponent,
     ListadoMateriasComponent,
     FormCriptosComponent,
-    ListadoUsuariosComponent
+    ListadoUsuariosComponent,
+    ListadoCriptosComponent
   ]
 })
 export class ComponentesModule { }

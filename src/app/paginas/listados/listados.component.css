@@ -14,7 +14,10 @@ div{
 }
 
 .listados{
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
   width: 80%;
   height: auto;
 }

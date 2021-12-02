@@ -2,6 +2,7 @@
 
 <div class="centrado">
   <div class="listados">
-    <app-listado-usuarios></app-listado-usuarios>
+    <app-listado-usuarios *ngIf="usuarioActual.tipo == 'administrador'"></app-listado-usuarios>
+    <app-listado-criptos *ngIf="usuarioActual.tipo == 'vendedor'"></app-listado-criptos>
   </div>
 </div>

@@ -15,6 +15,7 @@ export class ListadoUsuariosComponent implements OnInit {
   loading : boolean = true;
   mostrar : boolean = false;
   usuarios : Array<Usuario>;
+  filter = '';
 
   constructor(private usService : UsuariosService, private spinner : NgxSpinnerService, private storage : StorageService) {}
 

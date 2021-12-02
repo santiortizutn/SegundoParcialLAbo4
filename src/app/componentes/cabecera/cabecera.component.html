@@ -9,6 +9,9 @@
         <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'altaCriptos'}" (click)="navigate('altaCriptos')">Alta criptos</a></li>
         <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'listados'}" (click)="navigate('listados')">Listado de usuarios</a></li>
       </ul>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="usuarioActual.tipo! == 'vendedor'">
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'listados'}" (click)="navigate('listados')">Listado de criptos</a></li>
+      </ul>
       <div class="text-end">
         <button type="button" class="btn btn-outline-light me-2" (click)="navigate('salir')" logEmail (logEmailEvent)="asignar($event)">{{email}}
           <i class="bi bi-power"></i>
