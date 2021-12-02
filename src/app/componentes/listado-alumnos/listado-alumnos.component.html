@@ -1,0 +1,10 @@
+<div class="listado">
+  <div class="fila" *ngFor="let alumno of alumnos">
+    <div class="card" style="width: 250; height: 210; margin: 10px;" (click)="elegirAlumno(alumno)">
+      <img class="card-img-top" src="{{alumno.foto}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{alumno.correo}}</h5>
+      </div>
+    </div>
+  </div>
+</div>

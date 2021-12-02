@@ -1,0 +1,7 @@
+<app-cabecera (navigateEvent)="salir($event)"></app-cabecera>
+
+<div class="centrado">
+    <app-listado-usuarios *ngIf="usuarioActual.tipo == 'administrador'"></app-listado-usuarios>
+    <app-listado-criptos *ngIf="usuarioActual.tipo == 'vendedor'"></app-listado-criptos>
+    <app-listado-vendedores *ngIf="usuarioActual.tipo == 'comprador'"></app-listado-vendedores>
+</div>

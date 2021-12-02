@@ -1,0 +1,23 @@
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="large"
+color="#fff"
+type="ball-scale-multiple">
+<p style="font-size: 20px; color: white"></p>
+</ngx-spinner>
+
+<div class="listado" *ngIf="!loading">
+  <div class="search-bar">
+    <input matInput type="text" class="form-control" placeholder="Escribe un perfil o un nombre para filtrar" [(ngModel)]="filter">
+  </div>
+  <div class="fila" *ngFor="let user of usuarios | filtro:filter let i=index">
+    <div class="card" style="width: 100%; height: 300; margin: 10px;">
+      <div class="card-body" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+        <p class="card-title">Usuario: {{user.correo}}</p>
+        <p class="card-text">Perfil: {{user.tipo}}</p>
+        <a class="btn btn-dark" style="margin: 2px;" *ngIf="user.estado == 'inactivo' && user.tipo == 'vendedor'" (click)="cambiarEstado(user.uid, 'activar')">Habilitar</a>
+        <a class="btn btn-danger" style="margin: 2px;" *ngIf="user.estado == 'activo' && user.tipo == 'vendedor'" (click)="cambiarEstado(user.uid, 'desactivar')">Deshabilitar</a>
+      </div>
+    </div>
+  </div>
+</div>

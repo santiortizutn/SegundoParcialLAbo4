@@ -1,0 +1,35 @@
+
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="large"
+color="#fff"
+type="ball-scale-multiple">
+<p style="font-size: 20px; color: white"></p>
+</ngx-spinner>
+
+<div class="principal" *ngIf="!loading">
+<div class="body">
+    <div class="list-container">
+        <div class="card" style="margin: 10px; width: 250px;" *ngFor="let user of vendedoresDisponibles">
+        <div class="card-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+            <h5 class="card-title">{{user.correo}}</h5>
+            <button class="btn btn-dark" (click)="verCriptos(user)" >Mostrar criptos</button>
+        </div>
+        </div>
+    </div>
+    <div class="listado" style="justify-content: center;">
+        <div class="card" style="margin: 10px; width: 250px;" *ngFor="let cripto of misCriptos">
+        <div class="card-header">
+            <h5 class="card-title"> {{cripto.nombre}}</h5>
+        </div>
+        <div class="card-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+            <p class="card-text">Costo actual: {{cripto.costoActual}}u$d</p>
+            <p class="card-text">Año: {{cripto.anio}}</p>
+            <p class="card-text">Comision: {{cripto.comision | comision}}</p>
+            <input type="number" class="form-control form-control-sm" placeholder="hasta 100" (input)="cantidad = $event.target.value">
+            <a class="btn btn-dark" (click)="comprarCriptos(cripto)">Comprar</a>
+        </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+<header class="p-3 text-white" style="background-color: black; font-weight: 500;">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <button class="btn btn-outline-light" type="button" (click)="navigate('home')">
+        <i class="bi bi-house-door-fill"></i>
+      </button>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="usuarioActual.tipo! == 'administrador'">
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'altaUsuarios'}" (click)="navigate('altaUsuarios')">Alta usuarios</a></li>
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'altaCriptos'}" (click)="navigate('altaCriptos')">Alta criptos</a></li>
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'listados'}" (click)="navigate('listados')">Listado de usuarios</a></li>
+      </ul>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="usuarioActual.tipo! == 'vendedor'">
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'listados'}" (click)="navigate('listados')">Listado de criptos</a></li>
+      </ul>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="usuarioActual.tipo! == 'comprador'">
+        <li><a class="nav-link px-2" [ngClass]="{'highlight': selected == 'listados'}" (click)="navigate('listados')">Listado de vendedores</a></li>
+      </ul>
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-light me-2" (click)="navigate('salir')" logEmail (logEmailEvent)="asignar($event)">{{email}}
+          <i class="bi bi-power"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="usuarioActual.tipo! == 'especialista'">
+        <li><a class="nav-link px-2"(click)="navigate('miPerfil')" [ngClass]="{'highlight': selected == 'miPerfil'}">Mi perfil</a></li>
+        <li><a class="nav-link px-2"(click)="navigate('misTurnos')" [ngClass]="{'highlight': selected == 'misTurnos'}">Mis turnos</a></li>
+        <li><a class="nav-link px-2"(click)="navigate('seccionPacientes')" [ngClass]="{'highlight': selected == 'seccionPacientes'}">Sección pacientes</a></li>
+      </ul>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="usuarioActual.tipo! == 'paciente'">
+        <li><a class="nav-link px-2"(click)="navigate('miPerfil')" [ngClass]="{'highlight': selected == 'miPerfil'}">Mi perfil</a></li>
+        <li><a class="nav-link px-2"(click)="navigate('misTurnos')" [ngClass]="{'highlight': selected == 'misTurnos'}">Mis turnos</a></li>
+        <li><a class="nav-link px-2"(click)="navigate('solicitarTurno')" [ngClass]="{'highlight': selected == 'solicitarTurno'}">Solicitar turno</a></li>
+      </ul>-->

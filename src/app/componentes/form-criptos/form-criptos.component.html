@@ -1,0 +1,52 @@
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="large"
+color="#fff"
+type="ball-scale-multiple">
+<p style="font-size: 20px; color: white"></p>
+</ngx-spinner>
+
+
+<div class="formulario animate__animated animate__fadeIn" >
+  <div class="fila" style="text-align: center;">
+    <h1>DATOS DE LA CRIPTO</h1>
+    <br>
+  </div>
+  <hr class="mb-4">
+  <form class="needs-validation" [formGroup]="formGroup" (ngSubmit)="enviarDatos()">
+    <div class="datos">
+      <div>
+        <div class="fila">
+          <div class="col-md-6 mb-6" style="padding: 5px;">
+            <label for="nombre">Nombre</label>
+            <input matInput type="text" class="form-control" id="nombre" placeholder="Ingrese un nombre" formControlName="nombre">
+            <p class="invalid" *ngIf="formGroup.get('nombre')?.errors?.required && formGroup.get('nombre')?.touched">El nombre es requerido</p>
+          </div>
+          <div class="col-md-6 mb-6" style="padding: 5px;">
+            <label for="costo">Costo actual</label>
+            <input matInput type="number" class="form-control" id="costo" placeholder="Ingrese un costo en dolares" formControlName="costo">
+            <p class="invalid" *ngIf="formGroup.get('costo')?.errors?.required && formGroup.get('costo')?.touched">El costo es requerido</p>
+          </div>
+        </div>
+        <div class="fila">
+          <div class="col-md-6 mb-6" style="padding: 5px;">
+            <label for="comision">Comision</label>
+            <input matInput type="number" class="form-control" id="comision" placeholder="Ingrese un porcentaje de comision" formControlName="comision">
+            <p class="invalid" *ngIf="formGroup.get('comision')?.errors?.required && formGroup.get('comision')?.touched">La comision es requerida</p>
+            <p class="invalid" *ngIf="formGroup.get('comision')?.errors?.min || formGroup.get('comision')?.errors?.max && formGroup.get('comision')?.touched">La comision debe ser entre 0 y 100 %</p>
+          </div>
+          <div class="col-md-6 mb-6" style="padding: 5px;">
+            <label for="año">Año</label>
+            <input matInput type="text" class="form-control" id="año" placeholder="Ingrese el año de creación" formControlName="año">
+            <p class="invalid" *ngIf="formGroup.get('año')?.errors?.required && formGroup.get('año')?.touched">El año es requerido</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ultimo">
+      <button class="submit" type="submit" [disabled] ="formGroup.invalid">Aceptar</button>
+    </div>
+  </form>
+</div>
+
+

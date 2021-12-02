@@ -1,0 +1,69 @@
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="large"
+color="#fff"
+type="ball-scale-multiple">
+<p style="font-size: 20px; color: white"></p>
+</ngx-spinner>
+
+
+<div class="formulario animate__animated animate__fadeIn" >
+  <div class="fila" style="text-align: center;">
+    <h1>DATOS DE LA MATERIA</h1>
+    <br>
+  </div>
+  <hr class="mb-4">
+  <form class="needs-validation" [formGroup]="formGroup" (ngSubmit)="enviarDatos()">
+    <div class="datos">
+      <div>
+        <div class="fila">
+          <div class="col-lg mb-3" style="padding: 5px;">
+            <label for="nombre">Nombre</label>
+            <input matInput type="text" class="form-control" id="nombre" placeholder="Ingrese un nombre" formControlName="nombre">
+            <p class="invalid" *ngIf="formGroup.get('nombre')?.errors?.required && formGroup.get('nombre')?.touched">El nombre es requerido</p>
+          </div>
+        </div>
+        <div class="fila">
+          <div class="col-md-6 mb-3" style="padding: 5px;">
+            <label for="cuatrimestre">Cuatrimestre</label>
+            <mat-select class="form-control" id="cuatrimestre" placeholder="Seleccione una..." formControlName="cuatrimestre">
+              <mat-option value="primer">Primer cuatrimestre</mat-option>
+              <mat-option value="segundo">Segundo cuatrimestre</mat-option>
+            </mat-select>
+            <p class="invalid" *ngIf="formGroup.get('cuatrimestre')?.errors?.required && formGroup.get('cuatrimestre')?.touched">El cuatrimestre es requerido</p>
+          </div>
+          <div class="col-md-6 mb-3" style="padding: 5px;">
+            <label for="cupo">Cupo de alumnos</label>
+            <input type="number" class="form-control" id="cupo" placeholder="Ingrese el cupo" formControlName="cupo">
+            <p class="invalid" *ngIf="formGroup.get('cupo')?.errors?.min || formGroup.get('cupo')?.errors?.max && formGroup.get('cupo')?.touched">El cupo debe ser entre 10 y 40 alumnos</p>
+            <p class="invalid" *ngIf="formGroup.get('cupo')?.errors?.required && formGroup.get('cupo')?.touched">El cupo es requerido</p>
+          </div>
+        </div>
+        <div class="fila">
+          <div class="col-md-6 mb-3" style="padding: 5px;">
+            <label for="año">Año</label>
+            <mat-select class="form-control" id="año" placeholder="Seleccione el año..." formControlName="año">
+              <mat-option value="primer">Primer año</mat-option>
+              <mat-option value="segundo">Segundo año</mat-option>
+              <mat-option value="tercero">Tercero año</mat-option>
+            </mat-select>
+            <p class="invalid" *ngIf="formGroup.get('año')?.errors?.required && formGroup.get('año')?.touched">El año es requerido</p>
+          </div>
+          <div class="col-md-6 mb-3" style="padding: 5px;">
+            <label for="foto">Foto</label>
+            <input type="file" class="form-control" id="foto" placeholder="Ingrese el foto" formControlName="foto" (change)="cargarImg($event)">
+            <p class="invalid" *ngIf="formGroup.get('foto')?.errors?.required && formGroup.get('foto')?.touched">La foto es requerida</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="profesores">Profesores</label>
+        <app-listado-profesor (profeElegidoEvent)="asignarProfesor($event)"></app-listado-profesor>
+        <p class="invalid" *ngIf="formGroup.get('profesor')?.errors?.required && formGroup.get('profesor')?.touched">El profesor es requerido</p>
+      </div>
+    </div>
+    <div class="ultimo">
+      <button class="submit" type="submit" [disabled] ="formGroup.invalid">Aceptar</button>
+    </div>
+  </form>
+</div>

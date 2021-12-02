@@ -1,0 +1,49 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white"></p>
+</ngx-spinner>
+
+<div class="buttons animate__animated animate__fadeIn" *ngIf="!loading && opcion == 'none'">
+  <button style="background-image: url(../../../assets/vendedor.jpg); background-size: cover;" (click)="opcion = 'vendedor'">VENDEDOR</button>
+  <button style="background-image: url(../../../assets/comprador.jpg); background-size: cover;" (click)="opcion = 'comprador'">COMPRADOR</button>
+  <button style="background-image: url(../../../assets/admin.jpg); background-size: cover;" *ngIf="esAdmin.tipo == 'administrador'" (click)="opcion = 'administrador'">ADMINISTRADOR</button>
+</div>
+<div class="formulario animate__animated animate__fadeIn" *ngIf="!loading && opcion != 'none'">
+  <div class="fila" style="text-align: center;">
+    <button mat-icon-button class="bac-btn" (click)="opcion = 'none'"><mat-icon>arrow_back</mat-icon></button><h1>DATOS DE REGISTRO</h1>
+    <hr class="mb-4">
+    <br>
+  </div>
+  <form class="needs-validation" [formGroup]="formGroup" (ngSubmit)="enviarDatos()">
+    <mat-divider></mat-divider>
+    <div class="fila">
+      <div class="col-lg" style="padding: 5px;">
+        <label for="correo">Correo electronico</label>
+        <input matInput type="email" class="form-control" id="correo" placeholder="Ingrese un correo valido" formControlName="correo">
+        <p class="invalid" *ngIf="formGroup.get('correo')?.errors?.email && formGroup.get('correo')?.touched">El formato es invalido</p>
+        <p class="invalid" *ngIf="formGroup.get('correo')?.errors?.required && formGroup.get('correo')?.touched">El correo es requerido</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="col-lg" style="padding: 5px;">
+        <label for="clave">Contraseña</label>
+        <input matInput type="password" class="form-control" id="clave" placeholder="Ingrese 6 o más digitos" formControlName="clave">
+        <p class="invalid" *ngIf="!formGroup.get('clave')?.errors?.required && formGroup.get('clave')?.errors?.menorASeis && formGroup.get('clave')?.touched">Debe ingresar al menos 6 caracteres</p>
+        <p class="invalid" *ngIf="formGroup.get('clave')?.errors?.required && formGroup.get('clave')?.touched">La clave es requerida</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="col-lg" style="padding: 5px;">
+        <label for="foto">Foto de perfil</label>
+        <input type="file" class="form-control" id="foto" placeholder="Elija una foto" (change)="cargarImg($event)" formControlName="foto">
+        <p class="invalid" *ngIf="formGroup.get('foto')?.errors?.required && formGroup.get('foto')?.touched">La foto es requerida</p>
+      </div>
+    </div>
+    <div class="ultimo">
+      <button class="submit" type="submit" [disabled] ="formGroup.invalid">Aceptar</button>
+    </div>
+  </form>
+</div>

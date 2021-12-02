@@ -1,0 +1,38 @@
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/* animate.css*/
+:root {
+  --animate-duration: 400ms;
+  --animate-delay: 0.2s;
+}
+
+.animate__animated .animate__headShake{
+  --animate-duration: 1500ms;
+  --animate-delay: 0.9s;
+}
+
+
+
+
+
+/* THEMING */
+
+/* INPUT FOCUS */
+
+.form-control:focus{border-color: black;  box-shadow: 0 0 5px rgb(0, 0, 0); -webkit-box-shadow: 0 0 5px rgb(0, 0, 0);}
+
+/* INPUT ERROR */
+.invalid{
+color: red;
+}
+
+/* TABS */
+.nav-link{
+color: rgb(0, 0, 0);
+cursor: pointer;
+}
